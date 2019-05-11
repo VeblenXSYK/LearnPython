@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package hello;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (RequestInfo) returns (ResonseInfo) {}
+}
+
+enum MessageType {
+  HEART = 0;
+}
+
+message HeartMessage{
+  string devid = 1;
+  string htype = 2;
+  string ver = 3;
+  string verex = 4;
+}
+
+// The request message containing the user's name.
+message RequestInfo {
+  MessageType mtype = 1;
+  HeartMessage heart = 2;
+}
+
+enum RetCode {
+  SUCCESS = 0;
+  FAILED = 1;
+  DEBUG = 2;
+}
+
+// The response message containing the greetings
+message ResonseInfo {
+  RetCode rcode = 1;
+  string fpath = 2;
+  string fhash = 3;
+}
